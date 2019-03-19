@@ -5,6 +5,7 @@ let department = document.querySelector(".department");
 let counter = 0;
 
 const names = ['Johny English', 'Tom Clancy', 'Harry Potter'];
+const departments = ['']
 console.log(names);
 // console.log(names.length);
 costaanName.innerHTML = names[counter];

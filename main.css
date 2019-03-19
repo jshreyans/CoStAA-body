@@ -6,7 +6,10 @@ body {
     padding: 0;
     margin: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
+    background: url('./images/Artboard\ 1.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 @font-face {
@@ -22,22 +25,36 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background: url('./images/Artboard\ 1.svg');
+    background-repeat: no-repeat;
+    background-size: 100%; */
 }
 
 .image {
-    background: url('./233-2334305_enquiry-icon-png\ \(1\).png');
+    background: url('./images/233-2334305_enquiry-icon-png\ \(1\).png');
     height: 500px;
     width: 400px;
     background-size: cover;
+    position: absolute;
+    top: 15%;
 }
 
 .name, .department {
-    font-size: 3em;
     font-family: Tech;
+    position: absolute;
+    color: cyan;
 }
 
 .name {
-    margin-top: 45px;
+    left: 40%;
+    font-size: 5em;
+    top: 750px;
+}
+
+.department {
+    left: 37.5%;
+    top: 880px;
+    font-size: 3em;
 }
 
 
