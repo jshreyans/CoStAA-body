@@ -1,16 +1,6 @@
 * {
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
-}
-
-body {
-    height: 100vh;
-    width: 100%;
-    background: rgb(0, 0, 145);
-    /* background-image: url('./images/Artboard\ 1.svg');
-    background-repeat: no-repeat;
-    background-size: 100%; */
 }
 
 @font-face {
@@ -18,103 +8,115 @@ body {
     src: url('./fonts/FAFERS_Technical_Font.ttf');
 }
 
-.wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
+body {
+    box-sizing: border-box;
     position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: Tech;
+    background: rgb(1, 1, 124);
+    color: cyan;
 }
 
 .image {
-    background-image: url('./images/233-2334305_enquiry-icon-png\ \(1\).png');
-    background-size: 100%;
-    height: 500px;
-    width: 400px;
-}
-
-/* -------- Animation for container to expand so that text can appear-------- */
-.container {
-    /* background: red; */
-    margin-top: 100px;
-    width: 240px;
-    height: 240px; 
-    border-radius: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.show-text {
-    animation: showText 0.8s ease forwards;
-}
-@keyframes showText {
-    0% {width: 240px}
-    100% {width: 1320px}
-}
-.hide-text {
-    animation: hideText 1s ease forwards;
-}
-@keyframes hideText {
-    0% {width: 1320px} 
-    100% {width: 240px}
-}
-/* ---------------------------------------------------- */
-.name, .department { 
-    display: none;
-}
-
-.show-details {
-    animation: showDetails 0.1s ease;
-    animation-delay: 0.9s;
-}
-@keyframes showDetails {
-    from {display: none}
-    to {display: block}
-}
-.hide-details {
-    animation: hideDetails 0.1s ease;
-    animation-duration: 0.9s;
-}
-@keyframes hideDetails {
-    from {display: block}
-    to {display: none}
-}
-.name {
-    font-family: Tech;
-    font-size: 5em;
-    color: cyan;
-}
-.department {
-    font-family: Tech;
-    font-size: 3em;
-    color: cyan;
-}
-/* ---------------------------------------------------- */
-.text-circle {
     position: absolute;
-    height: 240px;
-    width: 240px;
+    height: 500px;
+    width: 500px;
+    background: url('./images/Icons8_flat_manager.svg.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    top: 5%;
+    left: calc(50% - 250px);
+}
+
+.container {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 60%;
+}
+
+.container .name {
+    font-size: 6em;
+}
+.container .department {
+    font-size: 3em;
+    margin-top: 30px;
+}
+
+/* -------- Animation code starts here ----------------*/
+
+.outer-circle {
+    position: absolute;
+    top: 60%;
+    left: 75%;
+    width: 270px;
+    height: 270px;
     border-radius: 50%;
-    border: 13px solid cyan;
-    transform: translate(550px,300px);
+    border: 10px solid cyan;
+    animation: growOuter 1s ease forwards;
+    transform-origin: 50% 50%;
+}
+@keyframes growOuter {
+    0% { transform: scale(0.2)}
+    90% {transform: scale(1.1)}
+    100% {transform: scale(1.0)}
 }
 
-.slide-left { 
-    animation: slideLeft 0.7s ease forwards;
+.inner-circle {
+    position: absolute;
+    top: 62.8%;
+    left: 76.5%;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    border: 3px solid cyan;
+    animation: growInner 0.8s ease forwards;
+    animation-delay: 0.7s;
+    transform-origin: 50% 50%;
+    transform: scale(0);
 }
-@keyframes slideLeft {
-    0% {transform: translate(550px, 300px)}
-    100% { transform: translate(-550px, 300px)}
-}
-.slide-right {
-    animation: slideRight 1s ease forwards;
+@keyframes growInner {
+    0% { transform: scale(0)}
+    100% {transform: scale(1.0)}
 }
 
-@keyframes slideRight {
-    0% {transform: translate(-550px, 300px)}
-    100% {transform: translate(550px, 300px)}
+.innermost {
+    position: absolute;
+    top: 64.2%;
+    left: 77.2%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid cyan;
+    animation: growInnerMost 0.9s ease forwards;
+    animation-delay: 0.3s;
+    transform-origin: 50% 50%;
+    /* transform: scale(0); */
+}
+@keyframes growInnerMost {
+    0% { transform: scale(0)}
+    100% {transform: scale(1.0)}
+}
+
+.rotator-1 {
+    width: 160px;
+    height:160px;
+    position: absolute;
+    top: 66%;
+    left: 78.1%;
+    border-radius: 50%;
+    border: 8px solid cyan;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: rotate 2s infinite;
+    transform-origin: 50% 50%;
+}
+@keyframes rotate{
+    0% {transform: rotate(0)}
+    10% {transform: rotate(90deg)}
+    30% {transform: rotate(-60deg)}
+    80% {transform: rotate(50deg)}
+    100% {transform: rotate(0deg)}
 }
 
