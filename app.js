@@ -40,6 +40,4 @@ document.addEventListener("keydown", (e)=> {
         printLetters(0, names, costaanName);
         printLetters(0, departments, departmentName);
     }
-    
-
 })
