@@ -45,11 +45,22 @@ body {
 }
 
 /* -------- Animation code starts here ----------------*/
-
-.outer-circle {
+.circles {
     position: absolute;
     top: 60%;
     left: 75%;
+    height: 270px;
+    width: 270px;
+    /* animation: slide 2s ease forwards; */
+}
+@keyframes slide {
+    from {transform: translateX(0)}
+    to {transform: translateX(-1220px)}
+}
+.outer-circle {
+    position: absolute;
+    /* top: 60%;
+    left: 75%; */
     width: 270px;
     height: 270px;
     border-radius: 50%;
@@ -65,8 +76,8 @@ body {
 
 .inner-circle {
     position: absolute;
-    top: 62.8%;
-    left: 76.5%;
+    top: 27.5px;
+    left: 27.5px;
     width: 230px;
     height: 230px;
     border-radius: 50%;
@@ -83,8 +94,8 @@ body {
 
 .innermost {
     position: absolute;
-    top: 64.2%;
-    left: 77.2%;
+    top: 40px;
+    left: 40px;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -92,7 +103,7 @@ body {
     animation: growInnerMost 0.9s ease forwards;
     animation-delay: 0.3s;
     transform-origin: 50% 50%;
-    /* transform: scale(0); */
+    transform: scale(0);
 }
 @keyframes growInnerMost {
     0% { transform: scale(0)}
@@ -103,8 +114,8 @@ body {
     width: 160px;
     height:160px;
     position: absolute;
-    top: 66%;
-    left: 78.1%;
+    top: 57px;
+    left: 57px;
     border-radius: 50%;
     border: 8px solid cyan;
     border-left-color: transparent;
