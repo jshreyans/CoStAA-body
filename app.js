@@ -24,7 +24,8 @@ function printLetters(index, arr, nameToPrint)
     {
         (function(i) {
             setTimeout(function() {
-                document.getElementsByTagName('span')[i].style.opacity = 1;
+                // nameToPrint.getElementsByTagName('span')[i].style.opacity = 1;
+                nameToPrint.getElementsByTagName('span')[i].classList.add("scale-letter");
             }, 90 * i);             
         })(i); 
     }

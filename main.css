@@ -41,16 +41,20 @@ body {
     height: 138px;
 }
 
-.container .name > span {
-    transition: 0.1s ease;
-}
+/* .container .name > span {
+    transition: 0.4s ease;
+} */
 .container .department {
     font-size: 3em;
     margin-top: 30px;
     height: 69px;
 }
 
-/* -------- Animation code starts here ----------------*/
+/* .container .department > span {
+    transition: 0.4s ease;
+} */
+
+/* -------- Animated circle starts here ----------------*/
 .circles {
     position: absolute;
     top: 60%;
@@ -137,3 +141,13 @@ body {
     100% {transform: rotate(0deg)}
 }
 
+/* ---------------------- Animated Letters --------------------*/
+
+.scale-letter {
+    animation: growLetter 0.4s ease forwards;
+    transform: scale(0);
+}
+@keyframes growLetter {
+    from{ transform: scale(0); opacity: 0}
+    to { transform: scale(1); opacity: 1}
+}
