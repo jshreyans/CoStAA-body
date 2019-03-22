@@ -63,10 +63,15 @@ body {
     width: 270px;
     /* animation: slide 2s ease forwards; */
 }
-@keyframes slide {
+@keyframes slideLeft {
     from {transform: translateX(0)}
-    to {transform: translateX(-1220px)}
+    to {transform: translateX(-1180px)}
 }
+@keyframes slideRight {
+    from {transform: translateX(-1180px)}
+    to {transform: translateX(0)}
+}
+
 .outer-circle {
     position: absolute;
     /* top: 60%;
@@ -75,13 +80,25 @@ body {
     height: 270px;
     border-radius: 50%;
     border: 10px solid cyan;
-    animation: growOuter 1s ease forwards;
     transform-origin: 50% 50%;
+    transform: scale(0);
 }
+.animate-outer-circle {
+    animation: growOuter 1s ease forwards;
+} 
+
 @keyframes growOuter {
-    0% { transform: scale(0.2)}
+    0% { transform: scale(0)}
     90% {transform: scale(1.1)}
     100% {transform: scale(1.0)}
+}
+
+.collapse {
+    animation: collapse-outer 1s ease forwards;
+}
+@keyframes collapse-outer {
+    from { transform: scale(1)}
+    to {transform: scale(0)}
 }
 
 .inner-circle {
@@ -92,10 +109,12 @@ body {
     height: 230px;
     border-radius: 50%;
     border: 3px solid cyan;
-    animation: growInner 0.8s ease forwards;
-    animation-delay: 0.7s;
     transform-origin: 50% 50%;
     transform: scale(0);
+}
+.animate-inner-circle {
+    animation: growInner 0.8s ease forwards;
+    animation-delay: 0.7s;
 }
 @keyframes growInner {
     0% { transform: scale(0)}
@@ -110,10 +129,12 @@ body {
     height: 200px;
     border-radius: 50%;
     border: 5px solid cyan;
-    animation: growInnerMost 0.9s ease forwards;
-    animation-delay: 0.3s;
     transform-origin: 50% 50%;
     transform: scale(0);
+}
+.animate-innermost {
+    animation: growInnerMost 0.9s ease forwards;
+    animation-delay: 0.3s;
 }
 @keyframes growInnerMost {
     0% { transform: scale(0)}
@@ -130,15 +151,18 @@ body {
     border: 8px solid cyan;
     border-left-color: transparent;
     border-right-color: transparent;
-    animation: rotate 2s infinite;
     transform-origin: 50% 50%;
+    transform: scale(0);
+}
+.animate-rotator {
+    animation: rotate 2s infinite;
 }
 @keyframes rotate{
-    0% {transform: rotate(0)}
-    10% {transform: rotate(90deg)}
-    30% {transform: rotate(-60deg)}
-    80% {transform: rotate(50deg)}
-    100% {transform: rotate(0deg)}
+    0% {transform: rotate(0) scale(0);}
+    10% {transform: rotate(90deg) scale(0.5)}
+    30% {transform: rotate(-60deg) scale(1)}
+    80% {transform: rotate(50deg) scale(1)}
+    100% {transform: rotate(0deg) scale(1)}
 }
 
 /* ---------------------- Animated Letters --------------------*/
