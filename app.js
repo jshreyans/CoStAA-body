@@ -1,8 +1,8 @@
 let costaanName = document.getElementsByClassName("name")[0];
 let departmentName = document.getElementsByClassName("department")[0]; 
 
-const names = ['Johny English', 'Tom Clancy', 'Harry Potter'];
-const departments = ['Department of Something', 'Department of Else', 'Something Else'];
+const names = ['Johny English', 'Guido Rossum', 'Harry Potter', 'Linus Torvalds'];
+const departments = ['Department of Something', 'Department of Else', 'Something Else', 'Linux Linux'];
 let counter = 0;
 
 function printLetters(index, arr, nameToPrint) 
@@ -77,13 +77,13 @@ function displayDetails(index) {
     
     setTimeout(() => {
         document.querySelector(".circles").style.animation = "slideLeft 1s ease forwards"; 
-    },2000);
+    },2500);
     
     setTimeout(()=>{
         printLetters(index, names, costaanName);
         printLetters(index, departments, departmentName);
-    },3000)
-    setTimeout(()=>{removeAnimation()},5000)
+    },3500)
+    setTimeout(()=>{removeAnimation()},5500)
 }
 
 // window.onload(addAnimation());   
@@ -118,6 +118,9 @@ document.addEventListener("keydown", (e)=> {
             case 51:
                 displayDetailsFirst(2);
                 break;
+            case 52:
+                displayDetailsFirst(3);
+                break;
         }
     }
 
@@ -132,6 +135,9 @@ document.addEventListener("keydown", (e)=> {
                 break;
             case 51:
                 displayDetails(2);
+                break;
+            case 52:
+                displayDetails(3);
                 break;
         }
     }
