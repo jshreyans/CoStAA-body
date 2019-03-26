@@ -56,8 +56,10 @@ function displayDetailsFirst(index) {
                 
     setTimeout(()=>{
         printLetters(index, names, costaanName);
-        printLetters(index, departments, departmentName);
     },1000)
+    setTimeout(() => {
+        printLetters(index, departments, departmentName);
+    },2000)
     setTimeout(()=> {removeAnimation()},3000)
     firstTimeCalled = 1;
 }
@@ -81,8 +83,10 @@ function displayDetails(index) {
     
     setTimeout(()=>{
         printLetters(index, names, costaanName);
-        printLetters(index, departments, departmentName);
     },3500)
+    setTimeout(() => {
+        printLetters(index, departments, departmentName);
+    },4500)
     setTimeout(()=>{removeAnimation()},5500)
 }
 
@@ -142,4 +146,18 @@ document.addEventListener("keydown", (e)=> {
         }
     }
     
+})
+let coun = 0;
+document.addEventListener("keydown", (e)=> {
+    if (e.keyCode == 32) {
+        
+        if (!coun) {
+            document.getElementsByClassName("close-box")[0].style.animation = "expand-box 2s ease forwards";
+            coun = 1;
+        }
+        else {
+            document.getElementsByClassName("close-box")[0].style.animation = "close-box 2s ease forwards";
+            coun = 0;
+        }
+    }
 })
