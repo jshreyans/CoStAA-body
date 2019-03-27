@@ -5,6 +5,44 @@ const names = ['Johny English', 'Guido Rossum', 'Harry Potter', 'Linus Torvalds'
 const departments = ['Department of Something', 'Department of Else', 'Something Else', 'Linux Linux'];
 let counter = 0;
 
+costaanDetails = {
+    1: {
+        name: 'Satyansh Rai',
+        dep: 'President',
+        image: './costaans/President.png'
+    },
+    2: {
+        name: 'Aakash Singh',
+        dep: 'Genreal Secretary',
+        image: './costaans/Gen Sec.png'
+    },
+    3: {
+        name: 'Megh Thakkar',
+        dep: 'Department Of Visual Media',
+        image: './costaans/DVM.png'
+    },
+    4: {
+        name: 'Anirudh Singla',
+        dep: 'Pep',
+        image: './costaans/Pep .png'
+    },
+    5: {
+        name: 'Aditya Pawar',
+        dep: 'Department of Art, Design and Publicity',
+        image: './costaans/adp.png'
+    },
+    6: {
+        name: 'Anushka Pathak',
+        dep: 'Department of Sponsorship',
+        image: './costaans/spons.png'
+    },
+    7: {
+        name: 'Apoorv Saxena',
+        dep: 'Department of Controls',
+        image: './costaans/controls.png'
+    }
+}
+
 // function printLetters(index, arr, nameToPrint) 
 // {
 // 	let person = arr[index];               
@@ -56,8 +94,8 @@ function printLetters(index, arr, nameToPrint)
     {
         (function(i) {
             setTimeout(function() {
-                console.log('works');
-                nameToPrint.getElementsByClassName("created")[i].style.opacity = 1;
+                // console.log('works');
+                nameToPrint.getElementsByClassName("created")[i].style.opacity = "1";
                 nameToPrint.getElementsByClassName("created")[i].style.transform = "scale(1)";
             }, 90 * i);             
         })(i); 
@@ -66,36 +104,31 @@ function printLetters(index, arr, nameToPrint)
 
 function removeLetters(nameToRemove) 
 {
-	// if(person != null) {
-    //     for (let i=0; i < ar.length; i++)
-    //     {
-	// 		// let element = document.getElementById("element");
-    //         let span = document.createElement('span');
-    //         span.innerHTML = ar[i];
-    //         nameToRemove.appendChild(span);
-    //         span.style.opacity = 0;
-    //     }
-    //     person = null;
-	// }
-    for (let i = nameToRemove.childElementCount - 1, j = 0; i >= 0; i--, j++) 
-    {
-        (function(j) {
-            setTimeout(function() {
-                // nameToRemove.getElementsByTagName('span')[i].style.opacity = 1;
-                // nameToRemove.getElementsByTagName('span')[i].classList.add("scale-letter");
-                // if (nameToRemove.hasChildNodes()) {
-                //     nameToRemove.lastChild.classList.remove("scale-letter");
-                //     nameToRemove.lastChild.classList.add("remove-letter");
-                //     setTimeout(() => {
-                //         nameToRemove.removeChild(nameToRemove.lastChild);
-                //     }, 3000);
-                // }
-                nameToRemove.children[i].classList.remove("scale-letter");
-                nameToRemove.children[i].classList.add("remove-letter");
-
-            }, 90 * j);             
-        })(j); 
+    // console.log('remove called');
+    let indicator = 1;
+    // for (let i = nameToRemove.childElementCount - 1, j = 0; i >= 0; i--, j++) 
+    // {
+    //     console.log(i);
+    //     (function(j) {
+    //         setTimeout(function() {
+    //             // nameToRemove.children[i].classList.remove("scale-letter");
+    //             // nameToRemove.children[i].classList.add("remove-letter");
+    //             nameToRemove.children[i].style.opacity = "0";
+    //             nameToRemove.children[i].style.transform = "scale(0)";
+    //         }, 90 * j);             
+    //     })(j); 
+    //     indicator = 0;
+    // }
+    for (let i=0; i <= nameToRemove.childElementCount - 1; i++) {
+        console.log("removing");
+        nameToRemove.children[i].style.opacity = "0";
+        indicator = 0;
     }
+    setTimeout(()=> {
+        while (nameToRemove.hasChildNodes()) {
+            nameToRemove.removeChild(nameToRemove.lastChild);
+        }
+    },2000)
 }
 
 function addAnimation() {
@@ -131,15 +164,15 @@ function displayDetailsFirst(index) {
 }
 
 function displayDetails(index) {
-    // removeLetters(costaanName);
-    // removeLetters(departmentName);
+    removeLetters(costaanName);
+    removeLetters(departmentName);
     // addAnimation();
-    while (costaanName.hasChildNodes()) {
-        costaanName.removeChild(costaanName.lastChild);
-    }
-    while (departmentName.hasChildNodes()) {
-        departmentName.removeChild(departmentName.lastChild);
-    }
+    // while (costaanName.hasChildNodes()) {
+    //     costaanName.removeChild(costaanName.lastChild);
+    // }
+    // while (departmentName.hasChildNodes()) {
+    //     departmentName.removeChild(departmentName.lastChild);
+    // }
 
     setTimeout(() => {
         document.querySelector(".circles").style.animation = "slideLeft 1s forwards";
@@ -181,39 +214,41 @@ document.addEventListener("keydown", (e)=> {
     // }
     
     if (!firstTimeCalled) {
-        switch (e.keyCode) 
-        {
-            case 49: 
-                displayDetailsFirst(0);
-                break;
-            case 50:
-                displayDetailsFirst(1);
-                break;
-            case 51:
-                displayDetailsFirst(2);
-                break;
-            case 52:
-                displayDetailsFirst(3);
-                break;
-        }
+        // switch (e.keyCode) 
+        // {
+        //     case 49: 
+        //         displayDetailsFirst(0);
+        //         break;
+        //     case 50:
+        //         displayDetailsFirst(1);
+        //         break;
+        //     case 51:
+        //         displayDetailsFirst(2);
+        //         break;
+        //     case 52:
+        //         displayDetailsFirst(3);
+        //         break;
+        // }
+        displayDetailsFirst(e.keyCode - 49);
     }
 
     else {
-        switch (e.keyCode) 
-        {
-            case 49: 
-                displayDetails(0);
-                break;
-            case 50:
-                displayDetails(1);
-                break;
-            case 51:
-                displayDetails(2);
-                break;
-            case 52:
-                displayDetails(3);
-                break;
-        }
+        // switch (e.keyCode) 
+        // {
+        //     case 49: 
+        //         displayDetails(0);
+        //         break;
+        //     case 50:
+        //         displayDetails(1);
+        //         break;
+        //     case 51:
+        //         displayDetails(2);
+        //         break;
+        //     case 52:
+        //         displayDetails(3);
+        //         break;
+        // }
+        displayDetails(e.keyCode - 49);
     }
     
 })
