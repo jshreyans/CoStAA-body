@@ -58,9 +58,6 @@ function printLetters(index, arr, nameToPrint)
             setTimeout(function() {
                 console.log('works');
                 nameToPrint.getElementsByClassName("created")[i].style.opacity = 1;
-                // nameToPrint.getElementsByTagName('div')[i].classList.remove("remove-letter");
-
-                // nameToPrint.getElementsByTagName('div')[i].classList.add("scale-letter");
                 nameToPrint.getElementsByClassName("created")[i].style.transform = "scale(1)";
             }, 90 * i);             
         })(i); 

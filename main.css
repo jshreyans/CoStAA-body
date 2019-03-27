@@ -64,10 +64,10 @@ body {
     font-size: 3em;
     height: 66px;
 }
-.name > div {
+.container .name > div {
     display: inline-block;
-    transition: opacity 0.1s ease;
-    /* width: fit-content; */
+    transition: 0.5s ease;
+    transform: scale(0);
 }
 
 .container .department {
@@ -78,12 +78,9 @@ body {
 
 .department > div {
     display: inline-block;
-    transition: scale 0.4s 0.2s ease;
-    /* transition-delay: scale 0.2s; */
+    transition: 0.5s ease;
+    transform: scale(0);
 }
-/* .container .department > span {
-    transition: 0.4s ease;
-} */
 
 /* -------- Animated circle starts here ----------------*/
 .circles {
