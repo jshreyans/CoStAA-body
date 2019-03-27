@@ -112,19 +112,6 @@ function removeLetters(nameToRemove)
 {
     // console.log('remove called');
     let indicator = 1;
-    // for (let i = nameToRemove.childElementCount - 1, j = 0; i >= 0; i--, j++) 
-    // {
-    //     console.log(i);
-    //     (function(j) {
-    //         setTimeout(function() {
-    //             // nameToRemove.children[i].classList.remove("scale-letter");
-    //             // nameToRemove.children[i].classList.add("remove-letter");
-    //             nameToRemove.children[i].style.opacity = "0";
-    //             nameToRemove.children[i].style.transform = "scale(0)";
-    //         }, 90 * j);             
-    //     })(j); 
-    //     indicator = 0;
-    // }
     for (let i=0; i <= nameToRemove.childElementCount - 1; i++) {
         console.log("removing");
         nameToRemove.children[i].style.opacity = "0";
@@ -201,67 +188,19 @@ function displayDetails(index) {
 
 // window.onload(addAnimation());   
 document.addEventListener("keydown", (e)=> {
-    // if (e.keyCode == 32) {
-    //     // console.log('works');
-    //     if (counter == 0) {
-    //         addAnimation();
-    //         counter = 1;
-    //     }
-    //     else {
-    //         removeAnimation();
-    //         counter = 0;
-    //     }
-    // }
-    // // setTimeout()
-    // removeAnimation();
-    // else if (e.keyCode == 65) {
-    //     printLetters(0, names, costaanName);
-    //     printLetters(0, departments, departmentName);
-    // }
     let code = e.keyCode; 
     let imgURL;
     if (!firstTimeCalled && code >= 49 && code <= 57) {
-        // switch (code) 
-        // {
-        //     case 49: 
-        //         displayDetailsFirst(0);
-        //         break;
-        //     case 50:
-        //         displayDetailsFirst(1);
-        //         break;
-        //     case 51:
-        //         displayDetailsFirst(2);
-        //         break;
-        //     case 52:
-        //         displayDetailsFirst(3);
-        //         break;
-        // }
         displayDetailsFirst(code - 48);
         imgURL = costaanDetails[code-48]['image'];
         document.getElementsByClassName("image")[0].style.background = `url(${imgURL})`; 
     }
 
     else if (code >= 49 && code <= 57) {
-        // switch (code) 
-        // {
-        //     case 49: 
-        //         displayDetails(0);
-        //         break;
-        //     case 50:
-        //         displayDetails(1);
-        //         break;
-        //     case 51:
-        //         displayDetails(2);
-        //         break;
-        //     case 52:
-        //         displayDetails(3);
-        //         break;
-        // }
         displayDetails(code - 48);
         imgURL = costaanDetails[code-48]['image'];
         document.getElementsByClassName("image")[0].style.background = `url(${imgURL})`; 
-    }
-    
+    } 
 })
 let coun = 0;
 document.addEventListener("keydown", (e)=> {
