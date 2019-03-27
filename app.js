@@ -5,7 +5,7 @@ const names = ['Johny English', 'Guido Rossum', 'Harry Potter', 'Linus Torvalds'
 const departments = ['Department of Something', 'Department of Else', 'Something Else', 'Linux Linux'];
 let counter = 0;
 
-costaanDetails = {
+let costaanDetails = {
     1: {
         name: 'Satyansh Rai',
         dep: 'President',
@@ -14,7 +14,7 @@ costaanDetails = {
     2: {
         name: 'Aakash Singh',
         dep: 'Genreal Secretary',
-        image: './costaans/Gen Sec.png'
+        image: './costaans/GenSec.png'
     },
     3: {
         name: 'Megh Thakkar',
@@ -24,7 +24,7 @@ costaanDetails = {
     4: {
         name: 'Anirudh Singla',
         dep: 'Pep',
-        image: './costaans/Pep .png'
+        image: './costaans/Pep.png'
     },
     5: {
         name: 'Aditya Pawar',
@@ -70,9 +70,15 @@ costaanDetails = {
 //     }
 // }
 
-function printLetters(index, arr, nameToPrint) 
+function printLetters(prop, index, nameToPrint) 
 {
-	let person = arr[index];               
+    // let person;
+    // if (prop === name) 
+    //     person = costaanDetails[index]['name'];       
+    // else if (prop === dep)
+    //     person = costaanDetails[index]['dep'];  
+    let person = costaanDetails[index][prop];
+
 	let ar = person.split("");
 
 	if(person != null) {
@@ -154,10 +160,10 @@ function displayDetailsFirst(index) {
     document.querySelector(".circles").style.animation = "slideRight 1s forwards";
     document.querySelector(".nameBox").style.animation = "open 1s forwards";
     setTimeout(()=>{
-        printLetters(index, names, costaanName);
+        printLetters('name', index, costaanName);
     },1000)
     setTimeout(() => {
-        printLetters(index, departments, departmentName);
+        printLetters('dep', index, departmentName);
     },2000)
     // setTimeout(()=> {removeAnimation()},3000)
     firstTimeCalled = 1;
@@ -185,10 +191,10 @@ function displayDetails(index) {
     },2500);
     
     setTimeout(()=>{
-        printLetters(index, names, costaanName);
+        printLetters('name', index, costaanName);
     },3500)
     setTimeout(() => {
-        printLetters(index, departments, departmentName);
+        printLetters('dep', index, departmentName);
     },4500)
     // setTimeout(()=>{removeAnimation()},5500)
 }
@@ -212,9 +218,10 @@ document.addEventListener("keydown", (e)=> {
     //     printLetters(0, names, costaanName);
     //     printLetters(0, departments, departmentName);
     // }
-    
-    if (!firstTimeCalled) {
-        // switch (e.keyCode) 
+    let code = e.keyCode; 
+    let imgURL;
+    if (!firstTimeCalled && code >= 49 && code <= 57) {
+        // switch (code) 
         // {
         //     case 49: 
         //         displayDetailsFirst(0);
@@ -229,11 +236,13 @@ document.addEventListener("keydown", (e)=> {
         //         displayDetailsFirst(3);
         //         break;
         // }
-        displayDetailsFirst(e.keyCode - 49);
+        displayDetailsFirst(code - 48);
+        imgURL = costaanDetails[code-48]['image'];
+        document.getElementsByClassName("image")[0].style.background = `url(${imgURL})`; 
     }
 
-    else {
-        // switch (e.keyCode) 
+    else if (code >= 49 && code <= 57) {
+        // switch (code) 
         // {
         //     case 49: 
         //         displayDetails(0);
@@ -248,7 +257,9 @@ document.addEventListener("keydown", (e)=> {
         //         displayDetails(3);
         //         break;
         // }
-        displayDetails(e.keyCode - 49);
+        displayDetails(code - 48);
+        imgURL = costaanDetails[code-48]['image'];
+        document.getElementsByClassName("image")[0].style.background = `url(${imgURL})`; 
     }
     
 })
