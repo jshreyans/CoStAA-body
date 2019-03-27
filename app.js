@@ -5,32 +5,32 @@ const names = ['Johny English', 'Guido Rossum', 'Harry Potter', 'Linus Torvalds'
 const departments = ['Department of Something', 'Department of Else', 'Something Else', 'Linux Linux'];
 let counter = 0;
 
-function printLetters(index, arr, nameToPrint) 
-{
-	let person = arr[index];               
-	let ar = person.split("");
+// function printLetters(index, arr, nameToPrint) 
+// {
+// 	let person = arr[index];               
+// 	let ar = person.split("");
 
-	if(person != null) {
-        for (let i=0; i < ar.length; i++)
-        {
-			// let element = document.getElementById("element");
-            let span = document.createElement('span');
-            span.innerHTML = ar[i];
-            nameToPrint.appendChild(span);
-            span.style.opacity = 0;
-        }
-        person = null;
-	}
-    for (let i=0; i < ar.length; i++) 
-    {
-        (function(i) {
-            setTimeout(function() {
-                // nameToPrint.getElementsByTagName('span')[i].style.opacity = 1;
-                nameToPrint.getElementsByTagName('span')[i].classList.add("scale-letter");
-            }, 90 * i);             
-        })(i); 
-    }
-}
+// 	if(person != null) {
+//         for (let i=0; i < ar.length; i++)
+//         {
+// 			// let element = document.getElementById("element");
+//             let span = document.createElement('span');
+//             span.innerHTML = ar[i];
+//             nameToPrint.appendChild(span);
+//             span.style.opacity = 0;
+//         }
+//         person = null;
+// 	}
+//     for (let i=0; i < ar.length; i++) 
+//     {
+//         (function(i) {
+//             setTimeout(function() {
+//                 // nameToPrint.getElementsByTagName('span')[i].style.opacity = 1;
+//                 nameToPrint.getElementsByTagName('span')[i].classList.add("scale-letter");
+//             }, 90 * i);             
+//         })(i); 
+//     }
+// }
 
 function printLetters(index, arr, nameToPrint) 
 {
@@ -134,15 +134,15 @@ function displayDetailsFirst(index) {
 }
 
 function displayDetails(index) {
-    removeLetters(costaanName);
-    removeLetters(departmentName);
+    // removeLetters(costaanName);
+    // removeLetters(departmentName);
     // addAnimation();
-    // while (costaanName.hasChildNodes()) {
-    //     costaanName.removeChild(costaanName.lastChild);
-    // }
-    // while (departmentName.hasChildNodes()) {
-    //     departmentName.removeChild(departmentName.lastChild);
-    // }
+    while (costaanName.hasChildNodes()) {
+        costaanName.removeChild(costaanName.lastChild);
+    }
+    while (departmentName.hasChildNodes()) {
+        departmentName.removeChild(departmentName.lastChild);
+    }
 
     setTimeout(() => {
         document.querySelector(".circles").style.animation = "slideLeft 1s forwards";
