@@ -1,6 +1,6 @@
 let path_list = document.querySelectorAll("path");
 // let duration = 9;
-for (let i = 0; i < path_list.length; i++) {
+for (let i = 0; i < path_list.length-2; i++) {
     path_list[i].classList.add(`circle${i}`);
     let elem = document.querySelector(`.circle${i}`);
 
