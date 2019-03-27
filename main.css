@@ -62,18 +62,25 @@ body {
 
 .container .name {
     font-size: 3em;
-    /* height: 138px; */
+    height: 66px;
+}
+.name > div {
+    display: inline-block;
+    transition: opacity 0.1s ease;
+    /* width: fit-content; */
 }
 
-/* .container .name > span {
-    transition: 0.4s ease;
-} */
 .container .department {
     font-size: 2em;
     margin-top: 30px;
     height: 69px;
 }
 
+.department > div {
+    display: inline-block;
+    transition: scale 0.4s 0.2s ease;
+    /* transition-delay: scale 0.2s; */
+}
 /* .container .department > span {
     transition: 0.4s ease;
 } */
@@ -81,19 +88,23 @@ body {
 /* -------- Animated circle starts here ----------------*/
 .circles {
     position: absolute;
-    top: 60%;
-    left: 75%;
+    top: 59%;
+    left: 15%;
     height: 270px;
     width: 270px;
+    /* animation-timing-function: cubic-bezier(.61, .17, .47, .87); */
+    animation-timing-function: ease-in-out;
     /* animation: slide 2s ease forwards; */
 }
+
 @keyframes slideLeft {
-    from {transform: translateX(0)}
-    to {transform: translateX(-1180px)}
-}
-@keyframes slideRight {
-    from {transform: translateX(-1180px)}
+    from {transform: translateX(60vw)}
     to {transform: translateX(0)}
+}
+
+@keyframes slideRight {
+    from {transform: translateX(0)}
+    to {transform: translateX(60vw)}
 }
 
 .outer-circle {
@@ -186,7 +197,7 @@ body {
     10% {transform: rotate(90deg) scale(0.5)}
     30% {transform: rotate(-60deg) scale(1)}
     80% {transform: rotate(50deg) scale(1)}
-    100% {transform: rotate(0deg) scale(1)}
+    100% {transform: rotate(0deg) scale(0)}
 }
 
 /* ---------------------- Animated Letters --------------------*/
@@ -198,6 +209,14 @@ body {
 @keyframes growLetter {
     from{ transform: scale(0); opacity: 0}
     to { transform: scale(1); opacity: 1}
+}
+
+.remove-letter {
+    animation: removeLetter 0.4s ease forwards;
+}
+@keyframes removeLetter {
+    from { transform: scale(1)}
+    to {transform: scale(0)}
 }
 
 .close-box {
@@ -232,20 +251,24 @@ body {
 .nameBox {
     position: absolute;
     top: 60%;
-    left: calc(50vw - 525px);
+    left: calc(50vw - 28vw);
     height: 270px;
-    width: 1050px;
+    width: 0;
     z-index: 20;
     background-image: url('./images/new-name.svg');
     background-size: cover;
-    animation: close 3s infinite;
+    animation-timing-function: ease-in-out;
+    /* animation: close 3s infinite; */
     /* transform: rotate(180deg); */
 }
 
+@keyframes open {
+    0% {width: 0} 
+    100% {width: 56vw}
+}
 @keyframes close {
-    0% {width: 1050px} 
-    50% {width: 100px}
-    100% {width: 1050px;}
+    0% {width: 56vw}
+    100% {widows: 0;}
 }
 
 .line-1 {
