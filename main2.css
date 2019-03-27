@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #252839;
+    /* opacity: 0.5; */
+    height: 100vh;
+    width: 100vw; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+.background {
+    /* background: url('./circles.svg'); */
+    height: 220%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* animation: rotate 9s linear infinite; */
+    opacity: 0.5;
+    transform-origin: 50% 50%;
+}
+
+svg {
+    height: 100%;
+    width: 100%;
+}
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('./stars-lg.svg');
+    opacity: 0.3;
+}
+@keyframes rotate {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
