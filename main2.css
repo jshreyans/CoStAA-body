@@ -33,29 +33,31 @@ body {
     transform-origin: 50% 50%;
 }
 .photo-1{
-    width: 67vh;
+    width: 68vh;
     background-size: cover;
     position: absolute;
+    left: 49.5vw;
+    transform: translateX(-50%);
     top: 14%;
     z-index: 3000;
     animation: rotate-box 12s linear infinite;
     transform-origin: 50% 50%;
 }
 @keyframes rotate-box {
-    from {transform: rotate(0deg)}
-    to {transform: rotate(360deg)}
+    from {transform: translateX(-50%) rotate(0deg)}
+    to {transform: translateX(-50%) rotate(360deg)}
 }
 
 .photo-2 {
     position: absolute;
-    top: 16%;
+    top: 14%;
     left: 49.5vw;
     transform: translateX(-50%);
     /* background: url('./costaans/DVM.png'); */
     background-repeat: no-repeat;
     background-position: center;
-    width: 61vh;
-    height: 61vh;
+    width: 69vh;
+    height: 64vh;
     border-radius: 50%;
     transform-origin: 50% 50%;
 }

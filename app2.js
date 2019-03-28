@@ -3,6 +3,8 @@ let costaanName = document.getElementsByClassName("name")[0];
 let departmentName = document.getElementsByClassName("dep")[0];
 // let duration = 9;
 
+
+// --------- Assigning animations to the SVG paths --------------
 for (let i = 0; i < path_list.length-2; i++) {
     path_list[i].classList.add(`circle${i}`);
     let elem = document.querySelector(`.circle${i}`);
@@ -17,17 +19,17 @@ for (let i = 0; i < ellipse_list.length; i++) {
     ellipse_list[i].classList.add(`ellipse${i}`);
 }
 
-// ---------------------------------------------------------------
+// ---------------------- Slideshow logic --------------------------
 
 let costaanDetails = {
     1: {
         name: 'Satyansh Rai',
-        dep: 'President',
+        dep: 'President, SU',
         image: './costaans/pres.png'
     },
     2: {
         name: 'Aakash Singh',
-        dep: 'General Secretary',
+        dep: 'General Secretary, SU',
         image: './costaans/gensec.png'
     },
     3: {
@@ -136,29 +138,37 @@ function removeLetters(nameToRemove)
     },1000)
 }
 let firstTimeCalled = 1;
+let isDisplayRunning = false;
 
 function displayDetails(index) {
+    isDisplayRunning = true;
     printLetters('name', index, costaanName);
     // printLetters('dep', index, departmentName);
     firstTimeCalled = 0;
+    isDisplayRunning = false;
 }
 document.addEventListener("keydown", change);
 
 function change(e) {
+
     let img = document.getElementsByClassName("photo-2")[0]
     let code = e.keyCode; 
-    console.log(e);
+    // console.log(e);
     let imgURL;
-    if (firstTimeCalled && code >= 49 && code <= 57) {
-        document.removeEventListener("keydown", change);
-        displayDetails(code - 48);   
+
+    if (firstTimeCalled && code >= 49 && code <= 57) 
+    {
+        // document.removeEventListener("keydown", change);
+        if (!isDisplayRunning)
+            displayDetails(code - 48);   
         // document.getElementsByClassName('photo-1')[0].style.animation = "rotate 2s ease-in-out forwards"
         imgURL = costaanDetails[code-48]['image'];
         img.style.opacity = "0";
         img.style.background = `url(${imgURL})`; 
-        img.style.backgroscaleundRepeat = "no-repeat";
+        img.style.backgroundRepeat = "no-repeat";
         img.style.backgroundPosition = "center";
         img.style.animation = "fadeIn 1s forwards";
+
         setTimeout(() => {
             img.style.opacity = "1";
             img.style.animation = "";
@@ -170,14 +180,18 @@ function change(e) {
     else if (code >= 49 && code <= 57) {
         // document.getElementsByClassName('photo-1')[0].style.animation = "rotate 1s ease-in-out forwards"
         document.removeEventListener("keydown", change);
+
         removeLetters(costaanName);
         removeLetters(departmentName);
+
         setTimeout(() => {
             displayDetails(code - 48);
         }, 1000);
+
         imgURL = costaanDetails[code-48]['image'];
         img.classList.remove("adder");
         img.classList.add("remove");
+
         setTimeout(()=> {
             img.classList.remove("remove");
             img.style.background = `url(${imgURL})`; 
@@ -188,7 +202,5 @@ function change(e) {
             document.addEventListener("keydown", change);
             img.classList.remove("remove");
         },600);
-        setTimeout(() => {
-        }, 1000);
     } 
 }
