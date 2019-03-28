@@ -1,162 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CoStAA Body</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body onload="addAnimation()">
-    <div class="image"></div>
-    <div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <div class="background">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1782.2 1782.2">
+                <title>circles</title>
+                <path fill="none"
+                    d="M706.3 601.5c-100.1 60.9-166.9 171.1-166.9 296.9 0 67.6 19.3 130.7 52.7 184.1m385.5 151c86.2-23.5 159.1-79.4 204.8-153.9" />
+                <path fill="none" stroke="#2A2C43" stroke-width="7.493" stroke-linecap="round"
+                    d="M644.8 613.5C567.2 680.8 518.1 780.2 518.1 891m505.7 339.9c133.7-54.8 227.9-186.3 227.9-339.9 0-72.4-21-140-57.1-196.9" />
+                <path opacity=".287" fill="none" stroke="#414250" stroke-width="7.493" stroke-linecap="round"
+                    d="M603.3 635.5c-60.9 67.6-98 157.1-98 255.3 0 210.7 170.6 381.5 381.2 381.5 122.5 0 231.6-57.9 301.3-147.8" />
+                <path fill="none" stroke="#B5B5B7" stroke-width="7.493" stroke-linecap="round"
+                    d="M502.1 976c39 176.6 196.3 308.6 384.4 308.6 217.4 0 393.6-176.4 393.6-393.9 0-146.2-79.6-273.8-197.7-341.8" />
+                <path fill="none" stroke="#414250" stroke-width="7.493" stroke-linecap="round"
+                    d="M472.9 889.2c-.3 130.7 61.1 259.4 176.2 340 187 131 444.9 85.4 575.9-101.8s85.7-445.1-101.3-576" />
+                <path fill="none" stroke="#252839" stroke-width="8.646" stroke-linecap="round"
+                    d="M982.3 475.7c-30.6-7-62.4-10.6-95-10.6-235.6 0-426.5 191.1-426.5 426.9 0 78.9 21.4 152.8 58.7 216.2m394.4 209.9c197.7-12.2 359-159.1 393.2-350.2" />
+                <path fill="none" stroke="#414250" stroke-width="10.951" stroke-linecap="round"
+                    d="M703.9 482.4c-154.4 70.2-261.8 225.9-261.8 406.7 0 118.1 45.9 225.6 120.7 305.4m447.3 124.1c141.4-40.1 254.2-148.2 300.9-286.7" />
+                <path fill="none" stroke="#677077" stroke-width="5.187" stroke-linecap="round"
+                    d="M417.6 901.5c2.4 104.8 40 207.1 107.5 288.9m218.3 148.2c209.7 68 444.9-19.4 555.7-219.3 104.6-188.7 65.5-418.2-81.2-562.6M810.2 430.2C692.7 449.8 582.6 513.8 507 617.8" />
+                <path fill="none" stroke="#414250" stroke-width="10.356" stroke-linecap="round"
+                    d="M585.8 488.1c-122.6 91.7-202 238.1-202 403 0 277.7 224.9 502.8 502.3 502.8s502.3-225.1 502.3-502.8c0-106.9-33.3-206-90.2-287.5" />
+                <path fill="none" stroke="#FFF" stroke-width="7.493" stroke-linecap="round"
+                    d="M687.6 1382.6c150.9 61 313.3 47.4 446.7-23.3m150.9-119.7c37.8-43.4 69.2-93.7 92-150.1 31.2-77.1 42.9-157.3 37.5-235.1M1187 454.6c-31.4-21.6-65.5-40.1-102.3-55-271.2-109.6-579.9 21.6-689.6 293-18.4 45.6-30 92.2-35.4 138.8" />
+                <ellipse fill="none" stroke="#2A2C43" stroke-width="16.091" cx="886.1" cy="891.1" rx="576.3"
+                    ry="576.7" />
+                <ellipse fill="none" stroke="#F1B631" stroke-width="5.187" cx="886.1" cy="891.1" rx="624.6"
+                    ry="625.1" />
+                <ellipse fill="none" stroke="#FFF" stroke-width="1.642" cx="886.1" cy="891.1" rx="601.2" ry="601.7" />
+                <path opacity=".29" fill="none" stroke="#414250" stroke-width="10.951" stroke-linecap="round"
+                    d="M417 442.9C305.9 559.4 237.6 717.3 237.6 891.1c0 67.9 10.4 133.4 29.8 195m226.8 322.2c108.9 82.8 244.7 131.9 391.9 131.9 237.3 0 444.9-127.6 557.9-318m70.3-493.2c-68.7-267.3-303.2-468-587.3-485.7" />
+                <ellipse fill="none" stroke="#577590" stroke-width="3.726" cx="886.1" cy="893.8" rx="676.6"
+                    ry="677.2" />
+                <path fill="none" stroke="#414250" stroke-width="18.041" stroke-linecap="round"
+                    d="M790.5 1637.3c31.3 4 63.2 6 95.6 6 415.1 0 751.6-336.8 751.6-752.2 0-181.9-64.5-348.7-171.9-478.8M983 145.1c-31.7-4.1-64.1-6.2-96.9-6.2-415.1 0-751.6 336.8-751.6 752.2 0 146.1 41.6 282.5 113.7 398" />
+                <ellipse fill="none" stroke="#2A2C43" stroke-width="6.606" cx="887" cy="893.1" rx="825.1" ry="825.7" />
+                <circle opacity=".299" fill="none" stroke="#677077" stroke-width="2.174" stroke-linecap="round"
+                    cx="891.1" cy="891.1" r="890" />
+            </svg>
+        </div>
+        <div class="photo-1">
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 339.79 324.28">
+                    <defs>
+                        <style>
+                            .cls-1,
+                            .cls-2 {
+                                fill: none;
+                                stroke: #f1b631;
+                            }
+
+                            .cls-1 {
+                                stroke-width: 9.38px;
+                            }
+
+                            .cls-2 {
+                                stroke-linecap: round;
+                                stroke-width: 9.28px;
+                            }
+                        </style>
+                    </defs>
+                    <title>name-circle</title>
+                    <path id="logo-loop-sm" class="cls-1"
+                        d="M309.9,138.3a24.5,24.5,0,1,0-24.5-24.5A24.48,24.48,0,0,0,309.9,138.3Z"
+                        transform="translate(0.7 -1.36)" />
+                    <path id="logo-loop" class="cls-2"
+                        d="M318.94,199.58C302.46,269.16,239.07,321,163.51,321,74.59,321,2.65,249.24,4,161.32,5.16,74.79,77.5,5.21,165.22,6A160,160,0,0,1,303.47,87.58"
+                        transform="translate(0.7 -1.36)" />
+            </svg>
+        </div>
+        <div class="photo-2"></div>
+        <div class="stars"></div>
         <div class="name"></div>
-        <div class="department"></div>
-    </div>
-    <div class="circles">
-        <div class="outer-circle th"></div>
-        <div class="inner-circle th"></div>
-        <div class="innermost th"></div>
-        <div class="rotator-1 th"></div>
-    </div>
+        <div class="dep"></div>
 
-    <!-- <div class="new-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1366 768">
-            <g id="Layer_5" data-name="Layer 5">
-                <polygon
-                    points="1130.81 685.7 1130.81 609.02 1130.81 532.35 1114.61 545.85 1114.61 609.02 1114.61 672.67 1130.81 685.7"
-                    opacity="0.5" fill="url(#linear-gradient)" />
-                <polygon
-                    points="1130.81 685.7 1130.81 609.02 1130.81 532.35 1147 545.85 1147 609.02 1147 672.67 1130.81 685.7"
-                    opacity="0.5" fill="url(#linear-gradient-2)" />
-                <polyline points="1101.41 715.1 1130.81 685.7 1130.81 531.66 1101.14 502" fill="none"
-                    stroke-miterlimit="10" stroke-width="1.96" stroke="url(#linear-gradient-3)" />
-                <polygon
-                    points="1130.81 685.7 1130.81 647.36 1130.81 609.02 1119.3 619.43 1119.3 647.36 1119.3 675.3 1130.81 685.7"
-                    fill="url(#linear-gradient-4)" />
-                <polygon
-                    points="1130.81 609.02 1130.81 570.68 1130.81 532.35 1119.3 542.75 1119.3 570.68 1119.3 598.62 1130.81 609.02"
-                    fill="url(#linear-gradient-5)" />
-                <path d="M471.58,661.34c-17.78,17.49-36.37,34.19-53.17,52.65" fill="none" stroke-miterlimit="10"
-                    stroke-width="1.96" stroke="url(#linear-gradient-6)" />
-                <path d="M1100.09,503.31q-26.69,27.36-53.89,54.22" fill="none" stroke-miterlimit="10"
-                    stroke-width="1.96" stroke="url(#linear-gradient-7)" />
-                <path d="M470.79,555.22c-17.87-17.55-36.53-34.34-53.38-52.91" fill="none" stroke-miterlimit="10"
-                    stroke-width="1.96" stroke="url(#linear-gradient-8)" />
-                <path d="M1102.09,713c-17.1-18.54-35.9-35.38-53.8-53.11" fill="none" stroke-miterlimit="10"
-                    stroke-width="1.96" stroke="url(#linear-gradient-9)" />
-                <polyline points="1101.13 503 804.07 503 758.96 513.49 713.85 503 416.8 503" fill="none"
-                    stroke-miterlimit="10" stroke-width="1.96" stroke="url(#linear-gradient-10)" />
-                <polyline points="416.8 713.52 713.85 713.52 758.96 703.02 804.07 713.52 1101.13 713.52" fill="none"
-                    stroke-miterlimit="10" stroke-width="1.96" stroke="url(#linear-gradient-11)" />
-                <path d="M388.81,530.93c9.57-9.4,19.56-18.38,28.58-28.33" fill="none" stroke-miterlimit="10"
-                    stroke-width="1.96" stroke="url(#linear-gradient-12)" />
-                <path d="M418.26,714.05c-9.4-9.57-18.38-19.56-28.33-28.58" fill="none" stroke-miterlimit="10"
-                    stroke-width="1.96" stroke="url(#linear-gradient-13)" />
-                <circle cx="346.12" cy="537.06" r="0.11" fill="#00feff" />
-                <circle cx="361.65" cy="544.87" r="0.19" fill="#00feff" />
-                <path
-                    d="M378.46,668.86l-.62-.62a82,82,0,0,1-58,24.18H319a82.05,82.05,0,0,1-58-24.18l-.62.62-2.48,2.48-.62.62A87.28,87.28,0,0,0,319,697.69h.88A87.28,87.28,0,0,0,381.56,672l-.62-.62Z"
-                    fill="#00feff" />
-                <path
-                    d="M260.4,550.8l.62.62a82.06,82.06,0,0,1,58-24.18h.88a82,82,0,0,1,58,24.17l1.86-1.86,1.24-1.24.62-.62a87.87,87.87,0,0,0-124.26,0l.62.62Z"
-                    fill="#00feff" />
-                <path d="M380.93,548.3l-1.24,1.24-1.24,1.24a83.48,83.48,0,0,1,0,118.07l2.48,2.48a87,87,0,0,0,0-123Z"
-                    fill="#00feff" opacity="0.8" />
-                <path d="M260.4,550.8l-2.48-2.48a87,87,0,0,0,0,123l2.48-2.48a83.48,83.48,0,0,1,0-118.07Z"
-                    fill="#00feff" opacity="0.8" />
-                <circle cx="320.18" cy="537.31" r="5.05" fill="#00feff" opacity="0.4" />
-                <circle cx="301.02" cy="539.83" r="5.05" transform="translate(-129.47 96.31) rotate(-15)"
-                    fill="#00feff" opacity="0.5" />
-                <circle cx="283.16" cy="547.22" r="5.05" transform="translate(-235.65 214.86) rotate(-30)"
-                    fill="#00feff" opacity="0.6" />
-                <circle cx="267.83" cy="558.98" r="5.05" transform="translate(-316.82 353.11) rotate(-45)"
-                    fill="#00feff" opacity="0.7" />
-                <circle cx="256.06" cy="574.31" r="5.05" transform="translate(-369.34 508.9) rotate(-60)"
-                    fill="#00feff" opacity="0.8" />
-                <circle cx="248.66" cy="592.17" r="5.05" transform="translate(-387.69 679.09) rotate(-75)"
-                    fill="#00feff" opacity="0.9" />
-                <circle cx="248.65" cy="630.49" r="5.05" transform="translate(-154.72 85.85) rotate(-15)"
-                    fill="#00feff" />
-                <circle cx="256.04" cy="648.35" r="5.05" transform="translate(-289.85 214.86) rotate(-30)"
-                    fill="#00feff" />
-                <circle cx="357.2" cy="547.24" r="5.05" transform="translate(-295.33 582.91) rotate(-60)"
-                    fill="#00feff" opacity="0.2" />
-                <circle cx="339.34" cy="539.84" r="5.05"
-                    transform="matrix(0.26, -0.97, 0.97, 0.26, -269.93, 727.88)" fill="#00feff" opacity="0.3" />
-                <circle cx="245.66" cy="610.17" r="5.05" transform="translate(-407.3 689.53) rotate(-75)"
-                    fill="#00feff" opacity="0.9" />
-                <path
-                    d="M348.08,640.39q1-.92,1.9-1.91a41.89,41.89,0,0,0-59.21-59.21c-.66.62-1.29,1.25-1.9,1.9a41.89,41.89,0,0,0,59.21,59.21Zm-58.26-2.86a40.38,40.38,0,0,1,0-55.4q.92-1,1.9-1.9a40.38,40.38,0,0,1,55.4,0q1,.92,1.9,1.9a40.38,40.38,0,0,1,0,55.4q-.92,1-1.9,1.91a40.38,40.38,0,0,1-55.4,0Q290.74,638.51,289.82,637.53Z"
-                    fill="#00feff" opacity="0.2" />
-                <path d="M309.16,558.58l1.24,6.18a45.85,45.85,0,0,1,18.05,0l1.24-6.18a53,53,0,0,0-20.53,0Z"
-                    fill="#00feff" opacity="0.4" />
-                <path d="M284.91,570.58l4.16,4.73a45.88,45.88,0,0,1,15.63-9l-2-6a53,53,0,0,0-17.78,10.26Z"
-                    fill="#00feff" opacity="0.4" />
-                <path d="M269.91,593.09l6,2a45.84,45.84,0,0,1,9-15.63l-4.73-4.16a53,53,0,0,0-10.27,17.78Z"
-                    fill="#00feff" opacity="0.4" />
-                <path d="M274.36,618.86a45.85,45.85,0,0,1,0-18.05l-6.18-1.24a53,53,0,0,0,0,20.53Z" fill="#00feff"
-                    opacity="0.4" />
-                <path d="M280.18,644.35l4.73-4.17a45.84,45.84,0,0,1-9-15.63l-6,2a53,53,0,0,0,10.27,17.78Z"
-                    fill="#00feff" opacity="0.4" />
-                <path d="M284.91,649.08a53,53,0,0,0,17.78,10.26l2-6a45.9,45.9,0,0,1-15.63-9Z" fill="#00feff"
-                    opacity="0.4" />
-                <path d="M329.69,661.08l-1.24-6.18a45.85,45.85,0,0,1-18.05,0l-1.24,6.18a53.06,53.06,0,0,0,20.53,0Z"
-                    fill="#00feff" opacity="0.4" />
-                <path
-                    d="M342.41,649.64a46.16,46.16,0,0,1-8.26,3.74l2,6a53,53,0,0,0,17.78-10.26l-4.16-4.73A46.11,46.11,0,0,1,342.41,649.64Z"
-                    fill="#00feff" opacity="0.4" />
-                <path
-                    d="M359.24,632.81a46.18,46.18,0,0,1-5.29,7.37l4.73,4.17a53.05,53.05,0,0,0,10.26-17.78l-6-2A46.33,46.33,0,0,1,359.24,632.81Z"
-                    fill="#00feff" opacity="0.4" />
-                <path
-                    d="M371.68,609.83a53.68,53.68,0,0,0-1-10.26l-6.18,1.24a45.84,45.84,0,0,1,0,18.05l6.18,1.24A53.63,53.63,0,0,0,371.68,609.83Z"
-                    fill="#00feff" opacity="0.4" />
-                <path d="M358.68,575.31l-4.73,4.16a45.84,45.84,0,0,1,9,15.63l6-2a53.05,53.05,0,0,0-10.26-17.78Z"
-                    fill="#00feff" opacity="0.4" />
-                <path d="M353.94,570.58a53,53,0,0,0-17.78-10.26l-2,6a45.88,45.88,0,0,1,15.63,9Z" fill="#00feff"
-                    opacity="0.4" />
-                <path
-                    d="M319.43,554.1a59.23,59.23,0,0,1,10.43,1l1.24-6.21a59.48,59.48,0,0,0-23.34,0l1.24,6.21A59.24,59.24,0,0,1,319.43,554.1Z"
-                    fill="#00feff" opacity="0.6" />
-                <path
-                    d="M263.69,609.83a59.23,59.23,0,0,1,1-10.43l-6.21-1.24a59.5,59.5,0,0,0,0,23.35l6.21-1.24A59.26,59.26,0,0,1,263.69,609.83Z"
-                    fill="#00feff" opacity="0.6" />
-                <path d="M266.79,628.18l-6,2a59.43,59.43,0,0,0,11.67,20.22l4.76-4.18a56.53,56.53,0,0,1-10.43-18.06Z"
-                    fill="#00feff" opacity="0.6" />
-                <path d="M283,652l-4.18,4.76A59.44,59.44,0,0,0,299,668.47l2-6A56.52,56.52,0,0,1,283,652Z"
-                    fill="#00feff" opacity="0.6" />
-                <path
-                    d="M319.43,665.56a59.24,59.24,0,0,1-10.43-1l-1.24,6.21a59.42,59.42,0,0,0,23.34,0l-1.24-6.21A59.23,59.23,0,0,1,319.43,665.56Z"
-                    fill="#00feff" opacity="0.6" />
-                <path d="M374.19,599.4a56.49,56.49,0,0,1,0,20.86l6.21,1.24a59.43,59.43,0,0,0,0-23.35Z"
-                    fill="#00feff" opacity="0.6" />
-                <path
-                    d="M373.24,578.76a59.59,59.59,0,0,0-6.84-9.53l-4.76,4.18a56.48,56.48,0,0,1,10.43,18.06l6-2A59.53,59.53,0,0,0,373.24,578.76Z"
-                    fill="#00feff" opacity="0.6" />
-                <path d="M339.81,551.19l-2,6a56.54,56.54,0,0,1,18.06,10.43l4.18-4.76a59.44,59.44,0,0,0-20.22-11.67Z"
-                    fill="#00feff" opacity="0.6" />
-                <path
-                    d="M426.42,622.08c.17-1.51.3-3,.41-4.55,0-.31.05-.61.07-.92.14-2.25.24-4.5.24-6.78a108.28,108.28,0,0,0-1.61-18.45l-.18-1q-.47-2.58-1.06-5.11l-.06-.26a107,107,0,0,0-11.42-28.84l-.42-.72q-1.28-2.18-2.66-4.3l-.37-.57a108.27,108.27,0,0,0-20.31-22.9l-.77-.66a107.25,107.25,0,0,0-68.86-24.9h-.12l-1.1,0c-1.61,0-3.22.06-4.81.15l-.68.05q-2.63.16-5.23.44h-.05a107.21,107.21,0,0,0-57.1,24.41c-.42.35-.83.72-1.25,1.09-1,.86-2,1.74-3,2.64-.43.4-.86.81-1.28,1.22q-1.43,1.37-2.81,2.8l-.57.6a108,108,0,0,0-15.21,20.26l-.43.74q-1.33,2.34-2.55,4.75l-.05.1a106.88,106.88,0,0,0-9.8,29.43c-.06.31-.11.62-.17.93q-.39,2.32-.68,4.67c0,.37-.1.74-.14,1.11-.17,1.54-.31,3.09-.42,4.64,0,.28,0,.56-.06.84-.14,2.24-.23,4.5-.23,6.78a108.21,108.21,0,0,0,1.61,18.45c.06.34.12.67.18,1q.47,2.58,1.06,5.12l.05.23a107,107,0,0,0,11.44,28.87l.39.68q1.3,2.22,2.7,4.36l.33.52A108.2,108.2,0,0,0,249.79,692l.78.67a107.26,107.26,0,0,0,68.86,24.89h.11l1.09,0c1.61,0,3.22-.06,4.82-.15l.66-.05q2.64-.16,5.25-.45h0a107.2,107.2,0,0,0,57.09-24.41c.43-.36.85-.74,1.28-1.11,1-.86,2-1.72,2.94-2.62.44-.41.87-.83,1.3-1.24q1.42-1.36,2.79-2.78l.58-.61a108,108,0,0,0,15.19-20.22l.47-.82q1.31-2.3,2.51-4.66l.09-.17a106.91,106.91,0,0,0,9.78-29.39c.06-.32.12-.63.17-1,.26-1.53.48-3.08.67-4.63C426.32,622.85,426.38,622.46,426.42,622.08Zm-50.77,72.43A101.64,101.64,0,0,1,218,616.18c-.13-2.1-.22-4.22-.22-6.35s.09-4.28.22-6.4a101.32,101.32,0,0,1,19.68-53.94,102,102,0,0,1,36.6-30.72,101.31,101.31,0,0,1,33.87-10,99.51,99.51,0,0,1,22.69,0,101.51,101.51,0,0,1,44.89,16.38,102.09,102.09,0,0,1,36.91,44,101.19,101.19,0,0,1,8.3,34.32c.13,2.1.22,4.21.22,6.35s-.09,4.28-.22,6.4a101.36,101.36,0,0,1-19.68,53.94,103.69,103.69,0,0,1-25.57,24.34Z"
-                    fill="#12aac2" />
-            </g>
-    </svg>
-    </div> -->
-    <div class="nameBox"></div>
 
-    <div class="line-1" style="left: 3%"></div>
-    <div class="line-2" style="left: 3%"></div>
-    <div class="line-2" style="right: 3%; transform: rotateY(180deg);"></div>
-    <div class="line-1" style="right: 3%; transform: rotateY(180deg);"></div>
+        <script src="app.js"></script>
+    </body>
 
-    <div class="squares" style="left: 8%"></div>
-    <div class="squares" style="right: 8%"></div>
-
-    <div class="temp-right"></div>
-    <div class="temp-left"></div>
-
-    <!-- <div class="close-box"></div> -->
-
-    <script src="app.js"></script>
-</body>
 </html>

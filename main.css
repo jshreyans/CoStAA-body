@@ -3,317 +3,133 @@
     margin: 0;
 }
 
-@font-face {
-    font-family: Tech;
-    src: url('./fonts/FAFERS_Technical_Font.ttf');
-}
-
-@font-face {
-    font-family: Tarr-simple;
-    src: url('./fonts/tarrget/tarrgetcond.ttf');
-}
-
-@font-face {
-    font-family: Outlier;
-    src: url('./fonts/outlier/Outlier.ttf')
-}
-
-@font-face {
-    font-family: gemina;
-    src: url('./fonts/gemina_2/gemina2.ttf');
-}
-
 body {
-    box-sizing: border-box;
-    position: relative;
+    background: #252839;
+    /* opacity: 0.5; */
     height: 100vh;
-    width: 100vw;
-    font-family: gemina;
-    font-weight: 200;
-    /* font-family: Tarr-simple; */
-    /* font-family: Outlier; */
-    /* background: rgb(1, 1, 124); */
-    background-image: url('./images/Background+Gradient.svg');
-    background-size: 100%;
-    color: cyan;
-}
-
-.image {
-    position: absolute;
-    height: 500px;
-    width: 500px;
-    /* background: url('./costaans/DVM.png'); */
-    background-size: 100%;
-    background-repeat: no-repeat;
-    top: 5%;
-    left: calc(50% - 250px);
-}
-
-.container {
-    width: 100%;
-    position: absolute;
-    text-align: center;
-    top: 60%;
-    height: 270px;
+    width: 100vw; 
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    overflow: hidden;
+    align-items: center;
 }
 
-.container .name {
-    font-size: 3em;
-    height: 66px;
+@font-face {
+    font-family: Lala;
+    src: url('./fonts/lala/babu/Proxima\ Nova\ Soft\ W03\ Regular.ttf')
 }
-.container .name > div {
+.background {
+    /* background: url('./circles.svg'); */
+    height: 300%;
+    width: 150vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* animation: rotate 9s linear infinite; */
+    opacity: 0.5;
+    transform-origin: 50% 50%;
+}
+.photo-1{
+    width: 68vh;
+    background-size: cover;
+    position: absolute;
+    left: 49.5vw;
+    transform: translateX(-50%);
+    top: 14%;
+    z-index: 3000;
+    animation: rotate-box 12s linear infinite;
+    transform-origin: 50% 50%;
+}
+@keyframes rotate-box {
+    from {transform: translateX(-50%) rotate(0deg)}
+    to {transform: translateX(-50%) rotate(360deg)}
+}
+
+.photo-2 {
+    position: absolute;
+    top: 14%;
+    left: 49.5vw;
+    transform: translateX(-50%);
+    /* background: url('./costaans/DVM.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 66vh;
+    height: 64vh;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+}
+
+.remove {
+    animation: remove 0.6s ease forwards;
+}
+@keyframes remove {
+    0% {transform: translateX(-50%) scale(1); opacity: 1}
+    60% {transform: translateX(-50%) scale(0.9); opacity: 1}
+    100% {transform: translateX(-50%) scale(1.1); opacity: 0}
+}
+
+.adder {
+    animation: add 1s ease forwards;
+}
+@keyframes add {
+    0% {transform: translateX(-50%) scale(1.1);opacity: 0;}
+    100% {transform: translateX(-50%) scale(1);opacity: 1;}
+}
+
+svg {
+    height: 100%;
+    width: 100%;
+}
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('./stars-lg.svg');
+    opacity: 0.3;
+}
+@keyframes fadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes rotate {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+.name {
+    position: absolute;
+    top: 80%;
+    font-size: 4em;
+    font-family: sans-serif;
+    width: 40vw;
+    text-align: center;
+    color: #fff;
+    /* background: red; */
+}
+
+.name > div {
     display: inline-block;
-    transition: 0.5s ease;
-    transform: scale(0);
+    /* transition: 0.4s ease; */
 }
 
-.container .department {
-    font-size: 2em;
-    margin-top: 30px;
-    height: 69px;
+.dep {
+    position: absolute;
+    top: 91%;
+    font-family: sans-serif;
+    font-size: 2.5em;
+    width: 80vw;
+    color: #fff;
+    /* background: red; */
+    text-align: center;
 }
 
-.department > div {
+.dep > div {
     display: inline-block;
-    transition: 0.5s ease;
-    transform: scale(0);
-}
-
-/* -------- Animated circle starts here ----------------*/
-.circles {
-    position: absolute;
-    top: 59%;
-    left: 15%;
-    height: 270px;
-    width: 270px;
-    /* animation-timing-function: cubic-bezier(.61, .17, .47, .87); */
-    animation-timing-function: ease-in-out;
-    /* animation: slide 2s ease forwards; */
-}
-
-@keyframes slideLeft {
-    from {transform: translateX(60vw)}
-    to {transform: translateX(0)}
-}
-
-@keyframes slideRight {
-    from {transform: translateX(0)}
-    to {transform: translateX(60vw)}
-}
-
-.outer-circle {
-    position: absolute;
-    /* top: 60%;
-    left: 75%; */
-    width: 270px;
-    height: 270px;
-    border-radius: 50%;
-    border: 10px solid cyan;
-    transform-origin: 50% 50%;
-    transform: scale(0);
-}
-.animate-outer-circle {
-    animation: growOuter 1s ease forwards;
-} 
-
-@keyframes growOuter {
-    0% { transform: scale(0)}
-    90% {transform: scale(1.1)}
-    100% {transform: scale(1.0)}
-}
-
-.collapse {
-    animation: collapse-outer 1s ease forwards;
-}
-@keyframes collapse-outer {
-    from { transform: scale(1)}
-    to {transform: scale(0)}
-}
-
-.inner-circle {
-    position: absolute;
-    top: 27.5px;
-    left: 27.5px;
-    width: 230px;
-    height: 230px;
-    border-radius: 50%;
-    border: 3px solid cyan;
-    transform-origin: 50% 50%;
-    transform: scale(0);
-}
-.animate-inner-circle {
-    animation: growInner 0.8s ease forwards;
-    animation-delay: 0.7s;
-}
-@keyframes growInner {
-    0% { transform: scale(0)}
-    100% {transform: scale(1.0)}
-}
-
-.innermost {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 5px solid cyan;
-    transform-origin: 50% 50%;
-    transform: scale(0);
-}
-.animate-innermost {
-    animation: growInnerMost 0.9s ease forwards;
-    animation-delay: 0.3s;
-}
-@keyframes growInnerMost {
-    0% { transform: scale(0)}
-    100% {transform: scale(1.0)}
-}
-
-.rotator-1 {
-    width: 160px;
-    height:160px;
-    position: absolute;
-    top: 57px;
-    left: 57px;
-    border-radius: 50%;
-    border: 8px solid cyan;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    transform-origin: 50% 50%;
-    transform: scale(0);
-}
-.animate-rotator {
-    animation: rotate 2s infinite;
-}
-@keyframes rotate{
-    0% {transform: rotate(0) scale(0);}
-    10% {transform: rotate(90deg) scale(0.5)}
-    30% {transform: rotate(-60deg) scale(1)}
-    80% {transform: rotate(50deg) scale(1)}
-    100% {transform: rotate(0deg) scale(0)}
-}
-
-/* ---------------------- Animated Letters --------------------*/
-
-.scale-letter {
-    animation: growLetter 0.4s ease forwards;
-    transform: scale(0);
-}
-@keyframes growLetter {
-    from{ transform: scale(0); opacity: 0}
-    to { transform: scale(1); opacity: 1}
-}
-
-.remove-letter {
-    animation: removeLetter 0.4s ease forwards;
-}
-@keyframes removeLetter {
-    from { transform: scale(1)}
-    to {transform: scale(0)}
-}
-
-.close-box {
-    width: 270px;
-    height: 270px;
-    position: absolute;
-    top: 60%;
-    right: 9.5%;
-    border-radius: 138px;
-    /* display: none; */
-    border: 10px solid cyan;
-}
-@keyframes expand-box {
-    from {width: 270px}
-    to {width: 1440px}
-}
-@keyframes close-box {
-    from {width: 1440px}
-    to {width: 270px;}
-}
-
-
-/* ------------ Components ------------ */
-.new-circle {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 500px;
-    height: 500px;
-}
-
-.nameBox {
-    position: absolute;
-    top: 60%;
-    left: calc(50vw - 28vw);
-    height: 270px;
-    width: 0;
-    z-index: 20;
-    background-image: url('./images/new-name.svg');
-    background-size: cover;
-    animation-timing-function: ease-in-out;
-    /* animation: close 3s infinite; */
-    /* transform: rotate(180deg); */
-}
-
-@keyframes open {
-    0% {width: 0} 
-    100% {width: 56vw}
-}
-@keyframes close {
-    0% {width: 56vw}
-    100% {widows: 0;}
-}
-
-.line-1 {
-    position: absolute;
-    top: 12%;
-    z-index: 5;
-    width: 423px;
-    height: 27px;
-    background-image: url('./images/line-1.svg');
-    background-size: cover;
-}
-
-.line-2 {
-    position: absolute;
-    top: 2%;
-    z-index: 5;
-    width: 720px;
-    height: 78px;
-    background-image: url('./images/line-2.svg');
-    background-size: cover;
-}
-
-.squares {
-    position: absolute;
-    height: 32%;
-    width: 27px;
-    top: 24%;
-    background-image: url('./images/squares.svg');
-    background-size: cover;
-}
-
-.temp-right {
-    height: 80%;
-    width: 52px;
-    position: absolute;
-    top: 16%;
-    right: 3%;
-    background-image: url('./images/temp.svg');
-    background-size: cover;
-}
-
-.temp-left {
-    height: 80%;
-    width: 52px;
-    position: absolute;
-    top: 16%;
-    left: 3%;
-    background-image: url('./images/temp.svg');
-    background-size: cover;
-    transform: rotateY(180deg);    
+    /* transition: 0.4s ease; */
 }

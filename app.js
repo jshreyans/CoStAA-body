@@ -1,74 +1,73 @@
+let path_list = document.querySelectorAll("path");
 let costaanName = document.getElementsByClassName("name")[0];
-let departmentName = document.getElementsByClassName("department")[0]; 
+let departmentName = document.getElementsByClassName("dep")[0];
+// let duration = 9;
 
-const names = ['Johny English', 'Guido Rossum', 'Harry Potter', 'Linus Torvalds'];
-const departments = ['Department of Something', 'Department of Else', 'Something Else', 'Linux Linux'];
-let counter = 0;
+
+// --------- Assigning animations to the SVG paths --------------
+for (let i = 0; i < path_list.length-2; i++) {
+    path_list[i].classList.add(`circle${i}`);
+    let elem = document.querySelector(`.circle${i}`);
+
+    elem.style.animation = `rotate ${13 - 0.6*i}s linear infinite`;
+    elem.style.animationDelay = `${0.1*i}s`;
+    elem.style.transformOrigin = "50% 50%";
+}
+
+let ellipse_list = document.querySelectorAll("ellipse");
+for (let i = 0; i < ellipse_list.length; i++) {
+    ellipse_list[i].classList.add(`ellipse${i}`);
+}
+
+// ---------------------- Slideshow logic --------------------------
 
 let costaanDetails = {
-    1: {
-        name: 'Satyansh Rai',
-        dep: 'President',
-        image: './costaans/President.png'
+    9: {
+        name: 'SATYANSH RAI',
+        dep: 'President, Student Union',
+        image: './costaans/pres.png'
     },
-    2: {
-        name: 'Aakash Singh',
-        dep: 'Genreal Secretary',
-        image: './costaans/GenSec.png'
+    8: {
+        name: 'AAKASH SINGH',
+        dep: 'General Secretary, Student Union',
+        image: './costaans/gensec.png'
     },
     3: {
-        name: 'Megh Thakkar',
+        name: 'MEGH THAKKAR',
         dep: 'Department Of Visual Media',
-        image: './costaans/DVM.png'
+        image: './costaans/dvm.png'
     },
-    4: {
-        name: 'Anirudh Singla',
-        dep: 'Pep',
-        image: './costaans/Pep.png'
+    2: {
+        name: 'ANIRUDH SINGLA',
+        dep: 'Department of Paper Evaluation and Presentation',
+        image: './costaans/pep.png'
     },
-    5: {
-        name: 'Aditya Pawar',
+    1: {
+        name: 'ADITYA PAWAR',
         dep: 'Department of Art, Design and Publicity',
         image: './costaans/adp.png'
     },
-    6: {
-        name: 'Anushka Pathak',
-        dep: 'Department of Sponsorship',
+    7: {
+        name: 'ANUSHKA PATHAK',
+        dep: 'Department of Sponsorship and Marketing',
         image: './costaans/spons.png'
     },
-    7: {
-        name: 'Apoorv Saxena',
+    6: {
+        name: 'APOORV SAXENA',
         dep: 'Department of Controls',
         image: './costaans/controls.png'
+    },
+    5: {
+        name: 'PARV PANTHARI',
+        dep: 'Department of Publication and Correspondence',
+        image: './costaans/pcr.png'
+    },
+    4: {
+        name: 'YATHARTH SINGH',
+        dep: 'Department of Reception and Accommodation',
+        image: './costaans/recnac.png'
     }
 }
-
-// function printLetters(index, arr, nameToPrint) 
-// {
-// 	let person = arr[index];               
-// 	let ar = person.split("");
-
-// 	if(person != null) {
-//         for (let i=0; i < ar.length; i++)
-//         {
-// 			// let element = document.getElementById("element");
-//             let span = document.createElement('span');
-//             span.innerHTML = ar[i];
-//             nameToPrint.appendChild(span);
-//             span.style.opacity = 0;
-//         }
-//         person = null;
-// 	}
-//     for (let i=0; i < ar.length; i++) 
-//     {
-//         (function(i) {
-//             setTimeout(function() {
-//                 // nameToPrint.getElementsByTagName('span')[i].style.opacity = 1;
-//                 nameToPrint.getElementsByTagName('span')[i].classList.add("scale-letter");
-//             }, 90 * i);             
-//         })(i); 
-//     }
-// }
 
 function printLetters(prop, index, nameToPrint) 
 {
@@ -103,9 +102,15 @@ function printLetters(prop, index, nameToPrint)
                 // console.log('works');
                 nameToPrint.getElementsByClassName("created")[i].style.opacity = "1";
                 nameToPrint.getElementsByClassName("created")[i].style.transform = "scale(1)";
-            }, 90 * i);             
-        })(i); 
+
+                if(prop == 'name' && i == ar.length-1) 
+                    printLetters('dep', index, departmentName);
+                if(prop == 'dep' && i == ar.length -1)
+                    window.addEventListener("keyup", change);
+            }, 80 * i);             
+        })(i);
     }
+
 }
 
 function removeLetters(nameToRemove) 
@@ -117,102 +122,95 @@ function removeLetters(nameToRemove)
         nameToRemove.children[i].style.opacity = "0";
         indicator = 0;
     }
+
+    // for (let i=0; i < ar.length; i++) 
+    // {
+    //     (function(i) {
+    //         setTimeout(function() {
+    //             // console.log('works');
+    //             nameToPrint.getElementsByClassName("created")[i].style.opacity = "1";
+    //             nameToPrint.getElementsByClassName("created")[i].style.transform = "scale(1)";
+    //         }, 90 * i);             
+    //     })(i); 
+    // }
     setTimeout(()=> {
         while (nameToRemove.hasChildNodes()) {
             nameToRemove.removeChild(nameToRemove.lastChild);
         }
-    },2000)
-}
-
-function addAnimation() {
-    document.getElementsByClassName("th")[0].classList.remove("collapse");
-    document.getElementsByClassName("outer-circle")[0].classList.add("animate-outer-circle");
-    document.getElementsByClassName("inner-circle")[0].classList.add("animate-inner-circle");
-    document.getElementsByClassName("innermost")[0].classList.add("animate-innermost");
-    document.getElementsByClassName("rotator-1")[0].classList.add("animate-rotator");        
-    // document.querySelector(".circles").style.animation = "slide 1s forwards";
-} 
-
-// function removeAnimation() {
-//     document.getElementsByClassName("outer-circle")[0].classList.remove("animate-outer-circle");
-//     document.getElementsByClassName("inner-circle")[0].classList.remove("animate-inner-circle");
-//     document.getElementsByClassName("innermost")[0].classList.remove("animate-innermost");
-//     document.getElementsByClassName("rotator-1")[0].classList.remove("animate-rotator");
-//     document.getElementsByClassName("th")[0].classList.add("collapse");
-// }
-
-let firstTimeCalled = 0;
-
-function displayDetailsFirst(index) {
-    document.querySelector(".circles").style.animation = "slideRight 1s forwards";
-    document.querySelector(".nameBox").style.animation = "open 1s forwards";
-    setTimeout(()=>{
-        printLetters('name', index, costaanName);
     },1000)
-    setTimeout(() => {
-        printLetters('dep', index, departmentName);
-    },2000)
-    // setTimeout(()=> {removeAnimation()},3000)
-    firstTimeCalled = 1;
 }
+let firstTimeCalled = 1;
+let isDisplayRunning = false;
 
 function displayDetails(index) {
-    removeLetters(costaanName);
-    removeLetters(departmentName);
-    // addAnimation();
-    // while (costaanName.hasChildNodes()) {
-    //     costaanName.removeChild(costaanName.lastChild);
-    // }
-    // while (departmentName.hasChildNodes()) {
-    //     departmentName.removeChild(departmentName.lastChild);
-    // }
-
-    setTimeout(() => {
-        document.querySelector(".circles").style.animation = "slideLeft 1s forwards";
-        document.querySelector(".nameBox").style.animation = "close 1s forwards";
-    },1000)
-    
-    setTimeout(() => {
-        document.querySelector(".circles").style.animation = "slideRight 1s forwards"; 
-        document.querySelector(".nameBox").style.animation = "open 1s forwards";
-    },2500);
-    
-    setTimeout(()=>{
-        printLetters('name', index, costaanName);
-    },3500)
-    setTimeout(() => {
-        printLetters('dep', index, departmentName);
-    },4500)
-    // setTimeout(()=>{removeAnimation()},5500)
+    isDisplayRunning = true;
+    printLetters('name', index, costaanName);
+    // printLetters('dep', index, departmentName);
+    firstTimeCalled = 0;
+    isDisplayRunning = false;
 }
+window.addEventListener("keyup", change);
 
-// window.onload(addAnimation());   
-document.addEventListener("keydown", (e)=> {
+function change(e) {
+
+    let img = document.getElementsByClassName("photo-2")[0]
     let code = e.keyCode; 
+    console.log(e);
     let imgURL;
-    if (!firstTimeCalled && code >= 49 && code <= 57) {
-        displayDetailsFirst(code - 48);
+
+    if (firstTimeCalled && code >= 49 && code <= 57) 
+    {
+        window.removeEventListener("keyup", change);
+        if (!isDisplayRunning)
+            displayDetails(code - 48);   
+        // document.getElementsByClassName('photo-1')[0].style.animation = "rotate 2s ease-in-out forwards"
         imgURL = costaanDetails[code-48]['image'];
-        document.getElementsByClassName("image")[0].style.background = `url(${imgURL})`; 
+        img.style.opacity = "0";
+        img.style.background = `url(${imgURL})`; 
+        img.style.backgroundRepeat = "no-repeat";
+        img.style.backgroundSize = "cover";
+        img.style.backgroundPosition = "center";
+        img.style.animation = "fadeIn 1s forwards";
+
+        setTimeout(() => {
+            img.style.opacity = "1";
+            img.style.animation = "";
+            // document.getElementsByClassName('photo-1')[0].style.animation = "rotate 12s linear infinite forwards";
+        }, 2000);
+        setTimeout(() => {
+            // window.addEventListener("keyup", change);            
+        }, 3000);
     }
 
     else if (code >= 49 && code <= 57) {
-        displayDetails(code - 48);
+        // document.getElementsByClassName('photo-1')[0].style.animation = "rotate 1s ease-in-out forwards"
+        window.removeEventListener("keyup", change);
+        console.log('removed');
+        removeLetters(costaanName);
+        removeLetters(departmentName);
+
+        setTimeout(() => {
+            displayDetails(code - 48);
+        }, 1000);
+
         imgURL = costaanDetails[code-48]['image'];
-        document.getElementsByClassName("image")[0].style.background = `url(${imgURL})`; 
+        img.classList.remove("adder");
+        img.classList.add("remove");
+
+        setTimeout(()=> {
+            img.classList.remove("remove");
+            img.style.background = `url(${imgURL})`; 
+            img.style.opacity = "0";
+            img.classList.add("adder");
+            img.style.backgroundPosition = "center";
+            img.style.backgroundRepeat = "no-repeat";
+            img.style.backgroundSize = "cover";
+
+            // window.addEventListener("keyup", change);
+            img.classList.remove("remove");
+        },600);
+        setTimeout(() => {
+            // window.addEventListener("keyup", change);            
+        }, 3000);
     } 
-})
-let coun = 0;
-document.addEventListener("keydown", (e)=> {
-    if (e.keyCode == 32) {
-        
-        if (!coun) {
-            document.getElementsByClassName("close-box")[0].style.animation = "expand-box 2s forwards";
-            coun = 1;
-        }
-        else {
-            document.getElementsByClassName("close-box")[0].style.animation = "close-box 2s forwards";
-            coun = 0;
-        }
-    }
-})
+}
