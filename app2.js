@@ -150,7 +150,7 @@ function change(e) {
     console.log(e);
     let imgURL;
     if (firstTimeCalled && code >= 49 && code <= 57) {
-        // document.removeEventListener("keydown", change);
+        document.removeEventListener("keydown", change);
         displayDetails(code - 48);   
         // document.getElementsByClassName('photo-1')[0].style.animation = "rotate 2s ease-in-out forwards"
         imgURL = costaanDetails[code-48]['image'];
@@ -162,13 +162,14 @@ function change(e) {
         setTimeout(() => {
             img.style.opacity = "1";
             img.style.animation = "";
+            document.addEventListener("keydown", change);
             // document.getElementsByClassName('photo-1')[0].style.animation = "rotate 12s linear infinite forwards";
         }, 2000);
     }
 
     else if (code >= 49 && code <= 57) {
         // document.getElementsByClassName('photo-1')[0].style.animation = "rotate 1s ease-in-out forwards"
-        // document.removeEventListener("keydown", change);
+        document.removeEventListener("keydown", change);
         removeLetters(costaanName);
         removeLetters(departmentName);
         setTimeout(() => {
@@ -184,10 +185,10 @@ function change(e) {
             img.classList.add("adder");
             img.style.backgroundPosition = "center";
             img.style.backgroundRepeat = "no-repeat";
+            document.addEventListener("keydown", change);
             img.classList.remove("remove");
-        },600)
+        },600);
         setTimeout(() => {
-            // document.addEventListener("keydown", change);
-        }, 3000);
+        }, 1000);
     } 
 }
