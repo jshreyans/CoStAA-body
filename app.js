@@ -3,17 +3,21 @@ let costaanName = document.getElementsByClassName("name")[0];
 let departmentName = document.getElementsByClassName("dep")[0];
 // let duration = 9;
 
-
+ 
 // --------- Assigning animations to the SVG paths --------------
 for (let i = 0; i < path_list.length-2; i++) {
     path_list[i].classList.add(`circle${i}`);
     let elem = document.querySelector(`.circle${i}`);
 
-    elem.style.animation = `rotate ${13 - 0.6*i}s linear infinite`;
+    if (i == 9 || i == 11)
+        elem.style.animation = `rotate-opp ${16 - 0.6*i}s linear infinite`;
+    else
+        elem.style.animation = `rotate ${16 - 0.6*i}s linear infinite`;
+
     elem.style.animationDelay = `${0.1*i}s`;
     elem.style.transformOrigin = "50% 50%";
 }
-
+// document.getElementsByClassName(".circle9").style.animation = "rotate-opp 7.6s linear infinite";
 let ellipse_list = document.querySelectorAll("ellipse");
 for (let i = 0; i < ellipse_list.length; i++) {
     ellipse_list[i].classList.add(`ellipse${i}`);
